@@ -1,6 +1,9 @@
 package zeta.android.utils.view;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
@@ -83,6 +86,7 @@ public class ViewUtils {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener) {
         if (DeviceUtils.hasJellyBean()) {
             v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
@@ -91,6 +95,7 @@ public class ViewUtils {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public static void setBackground(View view, Drawable drawable) {
         if (DeviceUtils.hasJellyBean()) {
             view.setBackground(drawable);
@@ -99,6 +104,7 @@ public class ViewUtils {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public static int generateViewId() {
         if (DeviceUtils.hasJellyBeanMR1()) {
             return View.generateViewId();
