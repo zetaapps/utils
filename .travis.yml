@@ -25,6 +25,8 @@ before_install:
 script:
   - sh ci.sh
 
+after_failure: "cat /home/travis/build/zetaapps/utils/zetautils/build/outputs/lint-results-debug.html"
+
 notifications:
   email: false
   slack: zeta-apps:qHFLKUEiEPtkEypfUSbSgx4R
