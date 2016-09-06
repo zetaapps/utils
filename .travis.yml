@@ -10,8 +10,8 @@ env:
 
 android:
   components:
-    - platform-tools
     - tools
+    - platform-tools
     - android-24
     - build-tools-24.0.2
     - extra-android-support
