@@ -87,6 +87,8 @@ public class ViewUtils {
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @SuppressLint("Deprecation")
+    @SuppressWarnings("deprecation")
     public static void removeOnGlobalLayoutListener(View v, ViewTreeObserver.OnGlobalLayoutListener listener) {
         if (DeviceUtils.hasJellyBean()) {
             v.getViewTreeObserver().removeOnGlobalLayoutListener(listener);
@@ -96,6 +98,8 @@ public class ViewUtils {
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @SuppressLint("Deprecation")
+    @SuppressWarnings("deprecation")
     public static void setBackground(View view, Drawable drawable) {
         if (DeviceUtils.hasJellyBean()) {
             view.setBackground(drawable);
@@ -105,6 +109,8 @@ public class ViewUtils {
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    @SuppressLint("Deprecation")
+    @SuppressWarnings("deprecation")
     public static int generateViewId() {
         if (DeviceUtils.hasJellyBeanMR1()) {
             return View.generateViewId();
