@@ -1,0 +1,28 @@
+#
+# Build configuration for Circle CI
+#
+machine:
+    environment:
+        ANDROID_HOME: /usr/local/android-sdk-linux
+        GRADLE_OPTS: -Xmx512m
+    java:
+        version: openjdk8
+
+dependencies:
+    pre:
+      - echo y | android update sdk --no-ui --all --filter "tools,android-24,build-tools-24.0.2,platform-tools,extra-android-m2repository,extra-google-m2repository"
+
+#-PdisablePreDex is a must else gradle just dies due to memory limit
+test:
+    override:
+        - (./gradlew assemble -PdisablePreDex):
+            timeout: 1000
+        - ./gradlew test
+
+#Deploy when tests pass
+deployment:
+    master:
+        branch: master
+        commands:
+            - (./gradlew clean build -PdisablePreDex -PwithDexcount --info):
+                timeout: 720
