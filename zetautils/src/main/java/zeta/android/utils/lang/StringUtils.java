@@ -3,6 +3,8 @@ package zeta.android.utils.lang;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import java.util.Locale;
+
 public class StringUtils {
     public static final String TAG = StringUtils.class.getSimpleName();
 
@@ -131,7 +133,7 @@ public class StringUtils {
             return EMPTY_STRING;
         }
 
-        String tmpStr = str.toLowerCase();
+        String tmpStr = str.toLowerCase(Locale.getDefault());
         return Character.toUpperCase(tmpStr.charAt(0)) + tmpStr.substring(1);
     }
 
