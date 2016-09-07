@@ -16,7 +16,7 @@ import java.lang.annotation.Inherited;
  * <li>{@link Hack}: use {@link ExistsForTesting} instead of {@link Hack} when the code in
  * question isn't a "hack", but is considered to be genuinely the only reasonable
  * approach.</li>
- * <li>{@link VisibleForTesting}: unlike {@link VisibleForTesting}, which is for elements that are
+ * <li>nlike {@link android.support.annotation.VisibleForTesting}, which is for elements that are
  * part of an implementation, but are being made <em>more visible</em> for testing,
  * {@link ExistsForTesting} is for elements which, if not for testing purposes, <em>wouldn't
  * exist at all.</em></li>
