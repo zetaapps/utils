@@ -10,6 +10,8 @@ import android.widget.EditText;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import zeta.android.utils.device.DeviceUtils;
+
 public class ViewUtils {
     private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
 
