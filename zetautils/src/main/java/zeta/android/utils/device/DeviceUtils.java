@@ -1,4 +1,4 @@
-package zeta.android.utils.view;
+package zeta.android.utils.device;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
@@ -23,13 +23,26 @@ public class DeviceUtils {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
     }
 
+    public static boolean hasKitKatWatch() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH;
+    }
+
     public static boolean hasLollipop() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    public static boolean hasLollipopMR1() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP_MR1;
     }
 
     public static boolean hasMarshmallow() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
+
+    public static boolean hasNougat() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+    }
+
 
     public static int getCurrentAppVersionCode(Context ctx) {
         return getPackageInfo(ctx).versionCode;
