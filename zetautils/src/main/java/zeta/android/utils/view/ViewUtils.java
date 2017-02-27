@@ -5,6 +5,8 @@ import android.annotation.TargetApi;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 
@@ -86,6 +88,25 @@ public class ViewUtils {
         if (view != null) {
             view.setVisibility(visible ? View.VISIBLE : View.GONE);
         }
+    }
+
+    public static View ensureInflated(ViewGroup layout, int id) {
+        return ensureInflated(layout.findViewById(id));
+    }
+
+    public static View ensureInflated(ViewGroup layout, int id, int inflatedId) {
+        View stub = ensureInflated(layout.findViewById(id));
+        if (stub == null) {
+            return layout.findViewById(inflatedId);
+        }
+        return stub;
+    }
+
+    public static View ensureInflated(View v) {
+        if (v instanceof ViewStub) {
+            return ((ViewStub) v).inflate();
+        }
+        return v;
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
