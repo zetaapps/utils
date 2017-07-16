@@ -73,6 +73,10 @@ dependencies {
     //SUPPORT LIBS
     implementation libraries.supportAppCompat
 
+    //ANNOTATION
+    implementation libraries.jsr305
+    implementation libraries.javaxAnnotationApi
+
     //TESTING
     testImplementation libraries.junit
 }

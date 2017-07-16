@@ -6,6 +6,9 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class DeviceUtils {
 
     public static boolean hasJellyBean() {
@@ -54,10 +57,9 @@ public class DeviceUtils {
      * @throws IllegalStateException in the seemingly impossible scenario that we cannot retrieve
      *                               this information.
      */
-    @NonNull
-    public static PackageInfo getPackageInfo(@NonNull Context ctx) {
+    public static PackageInfo getPackageInfo(Context context) {
         try {
-            return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0);
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
         } catch (PackageManager.NameNotFoundException e) {
             // There should be no reason that this will ever fail.
             throw new IllegalStateException("Somehow failed to retrieve package information.", e);
