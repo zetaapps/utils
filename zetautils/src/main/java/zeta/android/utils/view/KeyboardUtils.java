@@ -11,6 +11,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class KeyboardUtils {
 
     /**
@@ -25,7 +28,7 @@ public class KeyboardUtils {
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
-    public static void showKeyboard(Fragment fragment) {
+    public static void showKeyboard(@Nullable Fragment fragment) {
         if (fragment == null) {
             return;
         }
@@ -35,7 +38,7 @@ public class KeyboardUtils {
         }
     }
 
-    public static void showKeyboard(View view) {
+    public static void showKeyboard(@Nullable View view) {
         if (view == null) {
             return;
         }
@@ -59,8 +62,7 @@ public class KeyboardUtils {
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
     }
 
-
-    public static void hideKeyboard(DialogFragment dialog) {
+    public static void hideKeyboard(@Nullable DialogFragment dialog) {
         if (dialog == null) {
             return;
         }
@@ -72,7 +74,7 @@ public class KeyboardUtils {
         }
     }
 
-    public static void hideKeyboard(Fragment fragment) {
+    public static void hideKeyboard(@Nullable Fragment fragment) {
         if (fragment == null) {
             return;
         }
@@ -83,7 +85,7 @@ public class KeyboardUtils {
         }
     }
 
-    public static void hideKeyboard(Activity activity) {
+    public static void hideKeyboard(@Nullable Activity activity) {
         if (activity == null) {
             return;
         }
@@ -94,7 +96,7 @@ public class KeyboardUtils {
         }
     }
 
-    public static void hideKeyboard(View view) {
+    public static void hideKeyboard(@Nullable View view) {
         if (view == null) {
             return;
         }
@@ -104,7 +106,7 @@ public class KeyboardUtils {
     }
 
 
-    private static void showKeyboardFromDialogInternal(Dialog dialog, int flag) {
+    private static void showKeyboardFromDialogInternal(@Nullable Dialog dialog, int flag) {
         if (dialog == null) {
             return;
         }

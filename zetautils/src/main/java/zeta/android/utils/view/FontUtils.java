@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class FontUtils {
 
     public interface FontAsset {
@@ -19,8 +22,7 @@ public class FontUtils {
      */
     public static Typeface getTypeface(Context context, FontAsset font) {
         AssetManager assets = context.getAssets();
-        Typeface typeface = Typeface.createFromAsset(assets, font.getFontPath());
-        return typeface;
+        return Typeface.createFromAsset(assets, font.getFontPath());
     }
 
 }

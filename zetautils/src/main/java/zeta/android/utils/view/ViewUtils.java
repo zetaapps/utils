@@ -12,8 +12,12 @@ import android.widget.EditText;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import zeta.android.utils.device.DeviceUtils;
 
+@ParametersAreNonnullByDefault
 public class ViewUtils {
     private static final AtomicInteger sNextGeneratedId = new AtomicInteger(1);
 
@@ -38,20 +42,15 @@ public class ViewUtils {
         setMultipleVisibilityInternal(View.INVISIBLE, invisibleViews);
     }
 
-    public static boolean isVisible(View view) {
-        if (view == null) {
-            return false;
-        }
-        return (view.getVisibility() == View.VISIBLE);
+    public static boolean isVisible(@Nullable View view) {
+        return view != null && (view.getVisibility() == View.VISIBLE);
     }
 
-    private static void setMultipleVisibilityInternal(int visibility, View... views) {
+    private static void setMultipleVisibilityInternal(int visibility, @Nullable View... views) {
         if (views == null) {
             return;
         }
-        int length = views.length;
-        for (int i = 0; i < length; i++) {
-            View view = views[i];
+        for (View view : views) {
             setVisibilityInternal(view, visibility);
         }
     }
@@ -68,7 +67,7 @@ public class ViewUtils {
         setVisibilityInternal(view, View.INVISIBLE);
     }
 
-    private static void setVisibilityInternal(View view, int visibility) {
+    private static void setVisibilityInternal(@Nullable View view, int visibility) {
         if (view != null && view.getVisibility() != visibility) {
             view.setVisibility(visibility);
         }
@@ -84,7 +83,7 @@ public class ViewUtils {
      * @param view    the view to change the visibility of
      * @param visible true if the view should be set to VISIBLE, false if it should be set to GONE
      */
-    public static void setVisibility(View view, boolean visible) {
+    public static void setVisibility(@Nullable View view, boolean visible) {
         if (view != null) {
             view.setVisibility(visible ? View.VISIBLE : View.GONE);
         }

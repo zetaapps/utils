@@ -5,6 +5,9 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.widget.Toast;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class Toaster {
 
     /**

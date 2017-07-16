@@ -1,12 +1,13 @@
 package zeta.android.utils.lang;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.util.Locale;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 public class StringUtils {
-    public static final String TAG = StringUtils.class.getSimpleName();
 
     public static final String SPACE = " ";
     public static final String EMPTY_STRING = "";
@@ -110,7 +111,6 @@ public class StringUtils {
         return trimMe.substring(0, maxLength);
     }
 
-
     /**
      * If the given string exceeds the max length trim the string to the max length and add ".." to it
      * <p/>
@@ -127,7 +127,6 @@ public class StringUtils {
         return ellipseMe;
     }
 
-    @NonNull
     public static String capitalizeFirstLetter(@Nullable final String str) {
         if (isNullOrEmpty(str)) {
             return EMPTY_STRING;
@@ -137,7 +136,6 @@ public class StringUtils {
         return Character.toUpperCase(tmpStr.charAt(0)) + tmpStr.substring(1);
     }
 
-    @NonNull
     public static String capitalizeFirstLetters(@Nullable final String str) {
         if (isNullOrEmpty(str)) {
             return EMPTY_STRING;
