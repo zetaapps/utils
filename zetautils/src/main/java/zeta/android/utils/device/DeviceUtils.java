@@ -7,6 +7,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 
 public class DeviceUtils {
+
     public static boolean hasJellyBean() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN;
     }
@@ -42,7 +43,6 @@ public class DeviceUtils {
     public static boolean hasNougat() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
     }
-
 
     public static int getCurrentAppVersionCode(Context ctx) {
         return getPackageInfo(ctx).versionCode;

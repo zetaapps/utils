@@ -1,6 +1,7 @@
 package zeta.android.utils.lang.response;
 
 public class TryParseResponse<T> {
+
     private T mValue;
     private boolean mSuccess;
 
